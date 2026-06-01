@@ -11,4 +11,8 @@ import java.sql.Date
  * @param initDate la fecha de creación de la tarea
  */
 @Entity(tableName = "tasks") // Anotación para indicar que esta clase es una entidad de la base de datos y se almacenará en la tabla "tasks"
-data class Task(@PrimaryKey(autoGenerate = true) val id: Int=0, val title: String, val initDate: Date)
+data class Task(
+  @PrimaryKey(autoGenerate = true) val id: Int = 0,
+  val title: String,
+  val initDate: Date
+)
