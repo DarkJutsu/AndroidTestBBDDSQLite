@@ -7,13 +7,18 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import kotlinx.coroutines.flow.Flow
 
+/**
+ * Interfaz que define las operaciones de acceso a datos para la entidad Task, anotada con @Dao
+ * para indicar que es un Data Access Object (DAO)
+ * Contiene funciones para obtener la lista de tareas, insertar una tarea y eliminar una tarea
+ */
 @Dao // Anotación para indicar que esta interfaz es un Data Access Object (DAO) para la entidad Task
 interface TaskDAO {
   /**
    * Funcion que devuelve una lista de tareas ordenada por fecha de creación de forma descendente
-   * @return Flow<List<Task>> una lista de tareas ordenada por fecha de creación de forma descendente
+   * @return Flow<List<Task>> una lista de tareas ordenada por id de creación de forma descendente
    */
-  @Query("SELECT * FROM tasks ORDER BY initDate DESC") // Consulta SQL para obtener todas las tareas ordenadas por fecha de creación de forma descendente
+  @Query("SELECT * FROM tasks ORDER BY id DESC") // Consulta SQL para obtener todas las tareas ordenadas por id de creación de forma descendente
   fun getTasks(): Flow<List<Task>>
 
   /**
