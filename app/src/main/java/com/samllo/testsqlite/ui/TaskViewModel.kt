@@ -23,7 +23,7 @@ class TaskViewModel(application: Application) : AndroidViewModel(application) {
    * para evitar bloquear el hilo principal
    * @param text el título de la tarea a agregar
    */
-  fun appTask(text: String) {
+  fun addTask(text: String) {
     viewModelScope.launch { dao.insert(Task(title = text)) }
   }
 
